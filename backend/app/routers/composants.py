@@ -12,9 +12,9 @@ def get_db():
         db.close()
 
 @router.get("/", response_model=list[schemas.Composant])
-def read_composants(db: Session = Depends(get_db)):
+def read_items(db: Session = Depends(get_db)):
     return crud.get_composants(db)
 
 @router.post("/", response_model=schemas.Composant)
-def add_composant(composant: schemas.ComposantCreate, db: Session = Depends(get_db)):
-    return crud.create_composant(db, composant)
+def create_item(item: schemas.ComposantCreate, db: Session = Depends(get_db)):
+    return crud.create_composant(db, item)

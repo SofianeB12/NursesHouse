@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from .. import crud, schemas, database
@@ -17,5 +16,5 @@ def read_items(db: Session = Depends(get_db)):
     return crud.get_commandes_clients(db)
 
 @router.post("/", response_model=schemas.CommandeClient)
-def add_item(item: schemas.CommandeClientCreate, db: Session = Depends(get_db)):
+def create_item(item: schemas.CommandeClientCreate, db: Session = Depends(get_db)):
     return crud.create_commande_client(db, item)

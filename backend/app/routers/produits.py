@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from .. import crud, schemas, database
@@ -17,5 +16,5 @@ def read_items(db: Session = Depends(get_db)):
     return crud.get_produits(db)
 
 @router.post("/", response_model=schemas.Produit)
-def add_item(item: schemas.ProduitCreate, db: Session = Depends(get_db)):
+def create_item(item: schemas.ProduitCreate, db: Session = Depends(get_db)):
     return crud.create_produit(db, item)
