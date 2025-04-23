@@ -67,3 +67,13 @@ def create_commande_client_produit(db: Session, item: schemas.CommandeClientProd
     db.commit()
     db.refresh(db_obj)
     return db_obj
+
+
+def get_composants_by_produit(db: Session, produit_id: int):
+    compositions = db.query(models.CompositionProduit).filter_by(id_produit=produit_id).all()
+    composants = []
+    for compo in compositions:
+        composant = db.query(models.Composant).get(compo.id_composant)
+        if composant:
+            composants.append(composant)
+    return composants

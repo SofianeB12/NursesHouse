@@ -7,13 +7,13 @@ class Composant(Base):
     nom = Column(String)
     couleur = Column(String)
     cout = Column(Float)
-    quantité_en_stock = Column(Integer)
+    quantite_en_stock = Column(Integer)
 
 class CommandeComposant(Base):
     __tablename__ = "commande_composant"
     id = Column(Integer, primary_key=True, index=True)
     id_composant = Column(Integer, ForeignKey("composant.id"))
-    quantité_commandée = Column(Integer)
+    quantite_commandee = Column(Integer)
     cout_commande = Column(Float)
     date_commande = Column(DateTime)
     statut = Column(String)
@@ -24,14 +24,14 @@ class Produit(Base):
     nom = Column(String)
     couleur = Column(String)
     prix = Column(Float)
-    quantité_en_stock = Column(Integer)
+    quantite_en_stock = Column(Integer)
 
 class CompositionProduit(Base):
     __tablename__ = "composition_produit"
     id = Column(Integer, primary_key=True, index=True)
     id_produit = Column(Integer, ForeignKey("produit.id"))
     id_composant = Column(Integer, ForeignKey("composant.id"))
-    quantité_utilisee = Column(Integer)
+    quantite_utilisee = Column(Integer)
 
 class CommandeClient(Base):
     __tablename__ = "commande_client"

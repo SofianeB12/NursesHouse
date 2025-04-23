@@ -5,7 +5,7 @@ class ComposantBase(BaseModel):
     nom: str
     couleur: str
     cout: float
-    quantité_en_stock: int
+    quantite_en_stock: int
 
 class ComposantCreate(ComposantBase):
     pass
@@ -17,7 +17,7 @@ class Composant(ComposantBase):
 
 class CommandeComposantBase(BaseModel):
     id_composant: int
-    quantité_commandée: int
+    quantite_commandee: int
     cout_commande: float
     date_commande: datetime
     statut: str
@@ -34,7 +34,7 @@ class ProduitBase(BaseModel):
     nom: str
     couleur: str
     prix: float
-    quantité_en_stock: int
+    quantite_en_stock: int
 
 class ProduitCreate(ProduitBase):
     pass
@@ -47,7 +47,7 @@ class Produit(ProduitBase):
 class CompositionProduitBase(BaseModel):
     id_produit: int
     id_composant: int
-    quantité_utilisee: int
+    quantite_utilisee: int
 
 class CompositionProduitCreate(CompositionProduitBase):
     pass
